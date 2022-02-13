@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:gravity="center_horizontal"
+
+    tools:context=".TodayWeatherFragment">
+    <LinearLayout
+        android:id="@+id/weather_panel"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"   >
+
+
+        <TextView
+            android:id="@+id/txt_city_name"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/courgette"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/img_weather"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                />
+
+
+            <TextView
+                android:id="@+id/txt_temperature"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="8dp"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:text=""
+                android:fontFamily="@font/courgette"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:fontFamily="@font/courgette"
+            android:textStyle="bold"
+            android:text="weather_in_london_gb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txt_date_time"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:fontFamily="@font/courgette"
+            android:textStyle="bold"
+            android:text="weather_in_london"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TableLayout
+            android:layout_marginTop="10dp"
+            android:stretchColumns="*"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:background="@color/windowBackground"
+            android:elevation="20dp">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_wind"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    ></ImageView>
+                <TextView
+                    android:id="@+id/txt_wind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/courgette"
+                    android:gravity="center_horizontal"
+                    android:text="speed_1_deg_1"
+                    android:textColor="@color/wind" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:text="pressure"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    />
+
+                <TextView
+                     android:layout_marginLeft="8dp"
+                    android:layout_column="1"
+                    android:id="@+id/txt_pressure"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:text="_1013_75_hpa"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+
+                    android:layout_marginStart="8dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:text="humidity"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                     android:layout_marginLeft="8dp"
+                    android:layout_column="1"
+                    android:id="@+id/txt_humidity"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:text="_100"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:text="sunrise"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                     android:layout_marginLeft="8dp"
+                    android:layout_column="1"
+                    android:id="@+id/txt_sunrise"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:text="_11_00"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:background="@drawable/cell"
+                     android:text ="sunset"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"   />
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_column="1"
+                    android:id="@+id/txt_sunset"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:text="_18_00"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:text="geo_coords" />
+                <TextView
+                     android:layout_marginLeft="8dp"
+                    android:layout_column="1"
+                    android:textColor="@color/wind"
+                    android:fontFamily="@font/courgette"
+                    android:id="@+id/txt_geo_coord"
+                    android:text="_32_0_81_0"
+                     android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </TableRow>
+
+        </TableLayout>
+
+
+
+
+
+   </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:indeterminate="true"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
