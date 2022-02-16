@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.label305:asynctask:1.1.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d35808f473b7aa99cbf154c01243c158/jetified-asynctask-1.1.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d35808f473b7aa99cbf154c01243c158/jetified-asynctask-1.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d35808f473b7aa99cbf154c01243c158/jetified-asynctask-1.1.1/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.label305/asynctask/1.1.1/313f54c052509df5240ec12d5baed6f2fd3a8e0b/asynctask-1.1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.label305/asynctask/1.1.1/feedd1f123a1857174b951b1d849cc1a0b1f051c/asynctask-1.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
