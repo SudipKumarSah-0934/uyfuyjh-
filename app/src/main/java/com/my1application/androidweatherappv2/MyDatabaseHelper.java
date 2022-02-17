@@ -40,11 +40,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    public  void insertData(){
+    public void insertData(){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("Name","Studio");
+        contentValues.put("Name","hello");
         contentValues.put("Age",10);
-
+        sqLiteDatabase.insert(TABLE_NAME,null,contentValues);
     }
+
 }

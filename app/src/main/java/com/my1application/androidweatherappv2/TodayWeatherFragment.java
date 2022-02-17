@@ -37,11 +37,13 @@ public class TodayWeatherFragment extends Fragment {
     ProgressBar loading;
 
 
+
     CompositeDisposable compositeDisposable;
     IOpenWeatherMap mService;
 
 
     static TodayWeatherFragment instance;
+
 
     public static TodayWeatherFragment getInstance() {
         if (instance== null)
@@ -108,8 +110,6 @@ public class TodayWeatherFragment extends Fragment {
                                    txt_geo_coord.setText(new StringBuilder("[").append(weatherResult.getCoord().toString()).append("]").toString());
                                              weather_panel.setVisibility(View.VISIBLE);
                                              loading.setVisibility(View.GONE);
-
-
                                }
                            }, new Consumer<Throwable>() {
                                @Override
@@ -131,6 +131,7 @@ public class TodayWeatherFragment extends Fragment {
         compositeDisposable.clear();
         super.onStop();
     }
+
 
   }
 
