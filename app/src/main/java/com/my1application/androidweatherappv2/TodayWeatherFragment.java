@@ -1,5 +1,8 @@
 package com.my1application.androidweatherappv2;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -35,6 +38,7 @@ public class TodayWeatherFragment extends Fragment {
     TextView txt_city_name, txt_humidity, txt_sunrise, txt_sunset, txt_pressure, txt_temperature, txt_description, txt_date_time, txt_wind, txt_geo_coord;
     LinearLayout weather_panel;
     ProgressBar loading;
+    private DBManager dbManager;
 
 
 
@@ -81,10 +85,12 @@ public class TodayWeatherFragment extends Fragment {
         weather_panel = (LinearLayout)itemView.findViewById(R.id.weather_panel);
         loading = (ProgressBar)itemView.findViewById(R.id.loading);
         getWeatherInformation();
+        dbManager  = new DBManager(getContext());
+        dbManager.open();
         return itemView;
     }
 
-    private void getWeatherInformation() {
+    public void getWeatherInformation() {
         compositeDisposable.add(mService.getweatherByLatlng(String.valueOf(Common.current_location.getLatitude()),
                 String.valueOf(Common.current_location.getLongitude()),
                 Common.APP_ID,
@@ -94,9 +100,15 @@ public class TodayWeatherFragment extends Fragment {
                 .subscribe(new Consumer<WeatherResult>() {
                                @Override
                                public void accept(WeatherResult weatherResult) throws Exception {
+                                   Cursor cu= dbManager.fetch();
+                                   while(cu.moveToNext()){
+                                       txt_city_name.setText("Success"+cu.getString(1));
+                                   }
+
+
                                    Glide.with(TodayWeatherFragment.this).load("https://icon-library.com/images/weather-app-icon/weather-app-icon-4.jpg").into(img_weather);
                                    Glide.with(TodayWeatherFragment.this).load("https://icon-library.com/images/wind-blowing-icon/wind-blowing-icon-13.jpg").into(img_wind);
-                                   txt_city_name.setText(weatherResult.getName());
+
                                    txt_description.setText(new StringBuilder("Weather in ")
                                    .append(weatherResult.getName()).toString());
                                    txt_temperature.setText(new StringBuilder(
@@ -110,6 +122,10 @@ public class TodayWeatherFragment extends Fragment {
                                    txt_geo_coord.setText(new StringBuilder("[").append(weatherResult.getCoord().toString()).append("]").toString());
                                              weather_panel.setVisibility(View.VISIBLE);
                                              loading.setVisibility(View.GONE);
+                                             dbManager.insert(weatherResult.getName(),weatherResult.getBase());
+
+
+
                                }
                            }, new Consumer<Throwable>() {
                                @Override

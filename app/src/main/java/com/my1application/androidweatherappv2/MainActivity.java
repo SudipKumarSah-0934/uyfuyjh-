@@ -87,9 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                 .show();
                     }
                 }).check();
-        myDatabaseHelper = new  MyDatabaseHelper(this);
-        SQLiteDatabase sqLiteDatabase = myDatabaseHelper.getWritableDatabase();
-        myDatabaseHelper.insertData();
+
     }
 
 
