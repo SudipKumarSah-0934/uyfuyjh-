@@ -2,9 +2,13 @@ package com.my1application.androidweatherappv2;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     MyDatabaseHelper myDatabaseHelper;
+    BroadcastReceiver broadcastReceiver;
 
     private CoordinatorLayout coordinatorLayout;
 
@@ -50,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        broadcastReceiver = new MyReceiver();
+        registerNetworkBroadcastReceiver();
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.root_view);
 
@@ -91,7 +97,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    protected void registerNetworkBroadcastReceiver() {
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        }
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        }
+    }
+    protected void unregisteredNetwork(){
+        try {
+            unregisterReceiver(broadcastReceiver);
+        }catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisteredNetwork();
+    }
 
     private void builtLocationCallBack() {
         locationCallback = new LocationCallback() {
@@ -131,4 +157,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-

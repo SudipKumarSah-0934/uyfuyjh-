@@ -4,20 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    android:gravity="center_horizontal"
+    android:gravity="center_vertical"
 
     tools:context=".TodayWeatherFragment">
     <LinearLayout
         android:id="@+id/weather_panel"
         android:orientation="vertical"
         android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"   >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"   >
 
 
         <TextView
             android:id="@+id/txt_city_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_marginTop="25dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/courgette"
@@ -46,7 +46,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_marginLeft="8dp"
                 android:textStyle="bold"
-                android:textSize="50sp"
+                android:textSize="30sp"
                 android:text=""
                 android:fontFamily="@font/courgette"
                 android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
                     />
 
                 <TextView
-                     android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_column="1"
                     android:id="@+id/txt_pressure"
                     android:textColor="@color/wind"
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"/>
 
                 <TextView
-                     android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_column="1"
                     android:id="@+id/txt_humidity"
                     android:textColor="@color/wind"
@@ -175,7 +175,7 @@
                     android:layout_width="wrap_content"/>
 
                 <TextView
-                     android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_column="1"
                     android:id="@+id/txt_sunrise"
                     android:textColor="@color/wind"
@@ -191,7 +191,7 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:background="@drawable/cell"
-                     android:text ="sunset"
+                    android:text ="sunset"
                     android:textColor="@color/wind"
                     android:fontFamily="@font/courgette"
                     android:layout_height="wrap_content"
@@ -221,13 +221,13 @@
                     android:fontFamily="@font/courgette"
                     android:text="geo_coords" />
                 <TextView
-                     android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_column="1"
                     android:textColor="@color/wind"
                     android:fontFamily="@font/courgette"
                     android:id="@+id/txt_geo_coord"
                     android:text="_32_0_81_0"
-                     android:layout_height="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_marginStart="8dp" />
             </TableRow>
@@ -237,26 +237,26 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" android:layout_width="match_parent">
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/faUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+                android:id="@+id/faUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
                 android:layout_margin="20dp"
-            android:src="@android:drawable/ic_menu_delete" />
+                android:src="@android:drawable/ic_menu_edit" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/faDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
-            android:layout_marginBottom="0dp"
-            android:layout_margin="20dp"
-            android:src="@android:drawable/ic_menu_edit"/></LinearLayout>
-
-
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/faDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginBottom="0dp"
+                android:layout_margin="20dp"
+                android:src="@android:drawable/ic_menu_delete"/></LinearLayout>
 
 
-   </LinearLayout>
+
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/loading"

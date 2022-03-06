@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.type.DateTime;
+
 import com.my1application.androidweatherappv2.Common.Common;
 import com.my1application.androidweatherappv2.Model.WeatherResult;
 import com.my1application.androidweatherappv2.Retrofit.IOpenWeatherMap;
@@ -149,21 +149,25 @@ public class TodayWeatherFragment extends Fragment  {
     public void showDBDATA(){
         Glide.with(TodayWeatherFragment.this).load("https://icon-library.com/images/weather-app-icon/weather-app-icon-4.jpg").into(img_weather);
         Glide.with(TodayWeatherFragment.this).load("https://icon-library.com/images/wind-blowing-icon/wind-blowing-icon-13.jpg").into(img_wind);
-        Cursor cu= dbManager.fetch();
-        weather_panel.setVisibility(View.VISIBLE);
-        loading.setVisibility(View.GONE);
-        txt_description.setText(new StringBuilder("Weather in ")
-                .append(cu.getString(1)));
-        txt_temperature.setText(cu.getString(3));
-        txt_date_time.setText(Common.convertUnixToDate(cu.getLong(4)));
-        txt_wind.setText(cu.getString(5));
-        txt_pressure.setText(cu.getString(6));
-        txt_humidity.setText(cu.getString(5));
-        txt_sunrise.setText(Common.convertUnixToDate(cu.getLong(7)));
-        txt_sunset.setText(Common.convertUnixToDate(cu.getLong(8)));
-        txt_geo_coord.setText(cu.getString(9));
+        if (dbManager.fetch()!=null){
+            Cursor cu= dbManager.fetch();
+            weather_panel.setVisibility(View.VISIBLE);
+            loading.setVisibility(View.GONE);
+            txt_description.setText(new StringBuilder("Weather in ")
+                    .append(cu. getString(1)));
+            txt_temperature.setText((cu.getString(3)));
+            txt_date_time.setText(Common.convertUnixToDate(cu.getLong(4)));
+            txt_wind.setText(cu.getString(5));
+            txt_pressure.setText(cu.getString(6));
+            txt_humidity.setText(cu.getString(5));
+            txt_sunrise.setText(Common.convertUnixToDate(cu.getLong(7)));
+            txt_sunset.setText(Common.convertUnixToDate(cu.getLong(8)));
+            txt_geo_coord.setText(cu.getString(9));
 
-        Log.d(cu.getString(1), "fetch: ############################################");
+            Log.d(cu.getString(1), "fetch: ############################################");
+        }else {
+            Log.d(getTag(), "No Data in Database");
+        }
     }
     public void del(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -188,7 +192,7 @@ public class TodayWeatherFragment extends Fragment  {
         });
         AlertDialog ad = builder.create();
         btnDel.setOnClickListener(new View.OnClickListener() {
-           /* String place = delInput.getText().toString();*/
+            /* String place = delInput.getText().toString();*/
             @Override
             public void onClick(View v) {
                 ad.show();
@@ -202,7 +206,7 @@ public class TodayWeatherFragment extends Fragment  {
         layout.setOrientation(LinearLayout.VERTICAL);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Update");
-        builder.setIcon(R.drawable.icons8_update_64);
+        builder.setIcon(R.drawable.ic_menu_black_24dp);
         builder.setMessage("Enter Details to be Updated");
 
         upId.setHint("ID");
@@ -253,4 +257,3 @@ public class TodayWeatherFragment extends Fragment  {
 
 
 }
-
