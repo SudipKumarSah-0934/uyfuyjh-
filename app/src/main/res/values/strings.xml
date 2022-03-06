@@ -6,4 +6,6 @@
     <string name="wednesday">Wednesday</string>
     <string name="_35_42">[35.42]</string>
     <string name="weather_in">Weather in</string>
+    <string name="delete">delete</string>
+    <string name="update">update</string>
 </resources>

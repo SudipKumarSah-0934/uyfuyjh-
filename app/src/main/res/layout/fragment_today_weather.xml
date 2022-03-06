@@ -233,7 +233,25 @@
             </TableRow>
 
         </TableLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_width="match_parent">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/faUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+            android:src="@android:drawable/ic_menu_delete" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/faDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginBottom="0dp"
+            android:layout_margin="20dp"
+            android:src="@android:drawable/ic_menu_edit"/></LinearLayout>
 
 
 
@@ -246,14 +264,5 @@
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
-
-
-
-
-
-
-
-
 
 </RelativeLayout>

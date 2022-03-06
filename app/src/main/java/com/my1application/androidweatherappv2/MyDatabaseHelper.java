@@ -17,18 +17,27 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     // Table columns
     public static final String _ID = "_id";
-    public static final String SUBJECT = "subject";
+    public static final String PLACE = "place";
     public static final String DESC = "description";
+    public static final String TEMP = "temperature";
+    public static final String DATETIME = "datetime";
+    public static final String WIND = "WIND";
+    public static final String PRESSURE = "pressure";
+    public static final String HUMIDITY = "humidity";
+    public static final String SUNRISE = "sunrise";
+    public static final String SUNSET = "sunset";
+    public static final String GEO_CORD = "geo_coord";
 
     // Database Information
     static final String DB_NAME = "Weather.DB";
 
     // database version
-    static final int DB_VERSION = 1;
+    static final int DB_VERSION = 14;
 
     // Creating table query
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SUBJECT + " TEXT NOT NULL, " + DESC + " TEXT);";
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PLACE + " TEXT NOT NULL, " + DESC + " TEXT, " + TEMP + " TEXT, " + DATETIME + " TEXT, " + WIND + " TEXT, " + PRESSURE + " TEXT, " + HUMIDITY + " TEXT, " + SUNRISE + " TEXT, " + SUNSET + " TEXT, " +
+            GEO_CORD + " TEXT);";
 
     public MyDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
